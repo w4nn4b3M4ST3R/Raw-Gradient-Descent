@@ -24,7 +24,7 @@ This dataset is used to train the regression model to predict product sales base
 Weights `w1`, `w2`, `w3`, and bias `b` are updated manually using the gradients of Mean Squared Error (MSE) loss:
 
 ```python
-loss = 0.5 * (y_hat - y)**2
+loss = 1/N * (y_hat - y)**2 # N is the quantity of the sample ( len(df.index) )
 
 dw1 = x1 * (y_hat - y)
 dw2 = x2 * (y_hat - y)
