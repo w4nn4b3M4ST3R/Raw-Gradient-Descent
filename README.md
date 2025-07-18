@@ -1,51 +1,64 @@
-# 📈 Manual Gradient Descent Linear Regression
+# 🧠 Raw ML Model: Build & Train from Scratch
 
-This project implements a **multi-variable linear regression model** trained entirely by hand using **gradient descent** — without any machine learning frameworks. It's designed to help learners and developers understand core optimization logic step-by-step.
-
----
-
-## 📊 Sample Dataset: Predict Sales from Ad Spending
-
-This dataset is used to train the regression model to predict product sales based on budget allocations for advertising in three channels: TV, Radio, and Newspaper.
+This repository showcases how core machine learning models can be implemented and trained **manually from scratch** — without using frameworks like scikit-learn or TensorFlow. The focus is on understanding internal mechanisms and optimization logic through code.
 
 ---
 
-## 🧠 Concept
+## 📂 Modules in This Project
 
-### We model a prediction function:
+### 🔹 1. All Linear Regression Model
 
-- TV : x1
-- Radio: x2
-- Newspaper: x3
-- Sales: y
+- Multi-variable model trained using basic numpy operations
+- Manual weight & bias updates via MSE gradient
+- Includes visualization of loss and predictions
 
-`ŷ = w₁·x₁ + w₂·x₂ + w₃·x₃ + b`
+### 🔹 2. Feature Engineering & Preprocessing
 
-Weights `w1`, `w2`, `w3`, and bias `b` are updated manually using the gradients of Mean Squared Error (MSE) loss:
+- Outlier removal (IQR method)
+- Skewness & kurtosis analysis
+- OneHotEncoding without sklearn
+- Log transform & scaling options
 
-```python
-loss = 1/N * (y_hat - y)**2 # N is the quantity of the sample ( len(df.index) )
+### 🔹 3. Performance Metrics
 
-dw1 = x1 * (y_hat - y)
-dw2 = x2 * (y_hat - y)
-dw3 = x3 * (y_hat - y)
-db  =      (y_hat - y)
+- MAE, MSE, RMSE, MAPE, R²
+- Manual implementation and comparisons
+- Baseline vs. learned model performance
 
-```
+### 🔹 4. Exploratory Data Analysis (EDA)
+
+- Seaborn visualizations
+- Statistical summaries
+- Correlation heatmaps
 
 ---
 
-## 🚀 How to Use
+## 📊 Dataset
 
-- 1. Run the notebook: `gradient_descent.ipynb` on local or Google Colab _(highly recommended)_
+Current demos use:
 
-- 2. Set learning rate and max epoch
+- **Ad Spending vs. Product Sales** dataset
+- Other datasets can be plugged in for regression tasks
 
-_Default:_
+---
 
-```python
-lr = 1e-5
-max_epoch = 1000
-```
+## 💡 Why Raw ML?
 
-- 3. `Run all`
+This project is designed to help you:
+
+- See what goes on **beneath the surface** of ML libraries
+- Build intuition for optimization & loss
+- Understand why models fail or succeed
+- Transition smoothly into advanced ML workflows
+
+---
+
+## 🚀 How to Run
+
+1. Clone the repo and open `raw_model.ipynb`
+2. Customize hyperparameters like `learning_rate` and `max_epoch`
+3. Run all cells and follow training visualization
+
+> Recommend using Google Colab for smoother execution
+
+---
