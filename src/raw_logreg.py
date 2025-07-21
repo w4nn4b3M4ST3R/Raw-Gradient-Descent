@@ -56,6 +56,11 @@ class LogisticRegression:
         Y_pred = self.sigmoid(Z)
         return [1 if y_pred >= threshold else 0 for y_pred in Y_pred]
 
+    def predict_prob(self, X):
+        X = np.array(X)
+        Z = np.dot(X, self.w) + self.b
+        return self.sigmoid(Z)
+
     def get_params(self):
         return self.w, self.b
 
