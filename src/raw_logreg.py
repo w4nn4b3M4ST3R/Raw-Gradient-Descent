@@ -19,6 +19,7 @@ class LogisticRegression:
         self.b = 0
 
     def sigmoid(self, x):
+        x = np.clip(x, -500, 500)
         return 1 / (1 + np.exp(-x))
 
     def get_loss_list(self):
