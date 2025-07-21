@@ -35,7 +35,9 @@ class LogisticRegression:
         self.initial(len_fea)
         for epoch in range(self.epochs):
 
-            Y_hat = self.sigmoid(np.dot(X, self.w) + self.b)
+            Y_hat = np.clip(
+                self.sigmoid(np.dot(X, self.w) + self.b), 1e-15, 1 - 1e-15
+            )
             cross_entropy = -np.mean(
                 Y * np.log(Y_hat) + (1 - Y) * np.log(1 - Y_hat)
             )
